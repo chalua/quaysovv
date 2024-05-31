@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chương trình quay số trúng thưởng - 1 giải nhất, 2 giải nhì, 3 giải ba, 5 giải KK</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+        #result {
+            margin-top: 20px;
+            text-align: left;
+        }
+        #result span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chương trình quay số trúng thưởng</h1>
+        <button onclick="generateLotteryNumbers()">Quay số</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        function generateLotteryNumbers() {
+			function randomNumbers(n){
+				var lotteryNumbers = [];
+				while (lotteryNumbers.length < n) {
+					var randomNumber = Math.floor(Math.random()*10);
+					lotteryNumbers.push(randomNumber);
+				}
+				return lotteryNumbers.slice(0,n).join("")
+			}
+            var resultElement = document.getElementById("result");
+            resultElement.innerHTML = "<span>Giải nhất:</span> " + randomNumbers(5) + "<br>" +
+                                       "<span>Giải nhì 1:</span> " + randomNumbers(4) + "<br>" +
+                                       "<span>Giải nhì 2:</span> " + randomNumbers(4) + "<br>" +
+                                       "<span>Giải ba 1:</span> " + randomNumbers(3) + "<br>" +
+                                       "<span>Giải ba 2:</span> " + randomNumbers(3) + "<br>" +
+									   "<span>Giải ba 3:</span> " + randomNumbers(3) + "<br>" +
+                                       "<span>Giải KK 1:</span> " + randomNumbers(2) + "<br>" +
+                                       "<span>Giải KK 2:</span> " + randomNumbers(2) + "<br>" +
+									   "<span>Giải KK 3:</span> " + randomNumbers(2) + "<br>" +
+									   "<span>Giải KK 4:</span> " + randomNumbers(2) + "<br>" +
+									   "<span>Giải KK 5:</span> " + randomNumbers(2) + "<br>"
+        }
+    </script>
+</body>
+</html>
